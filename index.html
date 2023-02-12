@@ -1,24 +1,35 @@
 <!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>Pixi inspector</title>
+<html>
+  <head>
     <link rel="shortcut icon" href="#">
+    <script src="https://pixijs.download/v6.4.2/pixi.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            background: #000000;
-        }
+      body {
+        margin:0;
+        padding:0;
+      }
     </style>
-</head>
-
+  </head>
 <body>
-    <canvas id="game" />
-    <script src="dist/bundle.js">
-    </script>
 
+<script>
+
+  const app = new PIXI.Application({
+    autoResize: true,
+    resolution: devicePixelRatio 
+  });
+  document.body.appendChild(app.view);
+
+  const rect = new PIXI.Graphics()
+    .beginFill(0xff0000)
+    .drawRect(0, 0, 100, 100);
+    
+  // Add it to the stage
+  app.stage.addChild(rect);
+
+  // Just for pixi-inspector
+  window.PIXI = PIXI;
+   
+</script>
 </body>
-
 </html>
